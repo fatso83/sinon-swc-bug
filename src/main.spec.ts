@@ -1,4 +1,4 @@
-import "./init";
+import "./init.js";
 
 import { expect } from "chai";
 import quibble from "quibble"
@@ -11,8 +11,8 @@ describe("main module", () => {
 
     before(async () => {
         mocked = sandbox.fake.returns("mocked")
-        await quibble.esm('./other.ts', {toBeMocked: mocked})
-        const mainModule = await import("./main")
+        await quibble.esm('./other', {toBeMocked: mocked})
+        const mainModule = await import("./main.js")
         main = mainModule.main;
         console.log('ferdig setup')
     })

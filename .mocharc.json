@@ -1,4 +1,7 @@
 {
+  "extensions": [
+    "ts"
+  ],
   "spec": [
     "src/**/*.{spec,test}.ts"
   ],
@@ -6,5 +9,5 @@
     "@swc/register"
   ],
   "recursive": true,
-  "loader": "quibble"
+  "loader": "ts-node/esm"
 }
