@@ -1,4 +1,4 @@
-import "./init.js";
+import "./init.ts";
 
 import { expect } from "chai";
 import quibble from "quibble";

@@ -3,11 +3,11 @@
     "ts"
   ],
   "spec": [
-    "src/**/*.{spec,test}.js"
-  ],
-  "require": [
-    "@swc/register"
+    "src/**/*.{spec,test}.ts"
   ],
   "recursive": true,
-  "loader": "quibble"
+  "loader": [
+    "@swc-node/register/esm",
+    "quibble"
+  ]
 }

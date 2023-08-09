@@ -1,4 +1,4 @@
-import { toBeMocked } from "./other.js";
+import { toBeMocked } from "./other.ts";
 
 export function main() {
   const out = toBeMocked();
