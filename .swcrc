@@ -1,16 +1,24 @@
 {
-    "test": ".*.ts$",
-    "jsc": {
-      "parser": {
-        "syntax": "typescript",
-        "decorators": true
-      },
-      "transform": {
-        "legacyDecorator": true,
-        "decoratorMetadata": true
-      }
+  "test": ".*.ts$",
+  "jsc": {
+    "experimental": {
+      "plugins": [
+        [
+          "jest_workaround",
+          {}
+        ]
+      ]
     },
-    "module": {
-      "type": "commonjs"
+    "parser": {
+      "syntax": "typescript",
+      "decorators": true
+    },
+    "transform": {
+      "legacyDecorator": true,
+      "decoratorMetadata": true
     }
+  },
+  "module": {
+    "type": "commonjs"
   }
+}
