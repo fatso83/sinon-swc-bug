@@ -1,16 +1,20 @@
-import sinon from "sinon";
 import "./init";
+
 import * as Other from "./other";
-import { main } from "./main";
+
 import { expect } from "chai";
+import { main } from "./main";
+import sinon from "sinon";
 
 const sandbox = sinon.createSandbox();
 
 describe("main", () => {
-  let mocked;
   it("should mock", () => {
-    mocked = sandbox.stub(Other, "toBeMocked").returns("mocked");
+      console.log('Other descriptors', Object.getOwnPropertyDescriptors(Other))
+      const stub = sandbox.stub().returns("mocked")
+      sandbox.replaceGetter(Other, "toBeMocked", () => stub)
+
     main();
-    expect(mocked.called).to.be.true;
+    expect(stub.called).to.be.true;
   });
 });
