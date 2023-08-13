@@ -1,6 +1,9 @@
-{    
-  "spec": ["src/**/*.{spec,test}.ts"],
-  "require": ["@swc/register"],
+{
+  "spec": [
+    "src/**/*.{spec,test}.ts"
+  ],
+  "require": [
+    "@swc/register"
+  ],
   "recursive": true
 }
-  

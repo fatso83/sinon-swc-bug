@@ -1,15 +1,21 @@
-import sinon from "sinon";
 import "./init";
-import * as Other from "./other";
-import { main } from "./main";
+
 import { expect } from "chai";
+import quibble from "quibble";
+import sinon from "sinon";
 
 const sandbox = sinon.createSandbox();
 
-describe("main", () => {
-  let mocked;
+describe("main module", () => {
+  let mocked, main;
+
+  before(() => {
+    mocked = sandbox.stub().returns("mocked"); 
+    quibble("./other", { toBeMocked: mocked });
+    ({main} = require("./main"));
+  });
+
   it("should mock", () => {
-    mocked = sandbox.stub(Other, "toBeMocked").returns("mocked");
     main();
     expect(mocked.called).to.be.true;
   });
