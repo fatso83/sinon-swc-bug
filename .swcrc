@@ -4,7 +4,7 @@
     "experimental": {
       "plugins": [
         [
-          "jest_workaround",
+          "swc_mut_cjs_exports",
           {}
         ]
       ]
