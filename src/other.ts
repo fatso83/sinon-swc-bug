@@ -4,7 +4,7 @@ function _toBeMocked() {
 
 export let toBeMocked = _toBeMocked
 
-export const myMock = {
+export const mock = {
     get toBeMocked(){ return toBeMocked; },
     set toBeMocked(mock){ toBeMocked = mock; }
 }

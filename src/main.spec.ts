@@ -13,8 +13,9 @@ describe("main", () => {
   it("should inject a stub using Sinon's auto-cleanup", () => {
     const mocked = sandbox.fake.returns("mocked");
 
+    console.log(Object.getOwnPropertyDescriptors(Other))
     // replace.usingAccessor is not available on DT per Sinon 16.1
-    (sandbox.replace as any).usingAccessor(Other.myMock,'toBeMocked',  mocked)
+    (sandbox.replace as any).usingAccessor(Other.mock,'toBeMocked',  mocked)
     const spy = sandbox.spy(console, 'log')
     main();
     expect(mocked.called).to.be.true;
