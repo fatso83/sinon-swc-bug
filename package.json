@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "lint": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +21,7 @@
     "chai": "^4.3.7",
     "chai-as-promised": "^7.1.1",
     "mocha": "^10.2.0",
-    "sinon": "^15.2.0"
+    "sinon": "^16.1.0"
   },
   "dependencies": {
     "ts-node": "^10.9.1",

@@ -9,15 +9,17 @@ import sinon from "sinon";
 const sandbox = sinon.createSandbox();
 
 describe("main", () => {
-  let mocked;
-  let original = Other.toBeMocked;
 
-  after(() => Other._setToBeMocked(original))
+  it("should inject a stub using Sinon's auto-cleanup", () => {
+    const mocked = sandbox.fake.returns("mocked");
 
-  it("should mock", () => {
-    mocked = sandbox.stub().returns("mocked");
-    Other._setToBeMocked(mocked)
+    // replace.usingAccessor is not available on DT per Sinon 16.1
+    (sandbox.replace as any).usingAccessor(Other.myMock,'toBeMocked',  mocked)
+    const spy = sandbox.spy(console, 'log')
     main();
     expect(mocked.called).to.be.true;
+    expect(spy.firstCall.args[0]).to.equal("mocked")
+    sandbox.restore();
+    expect(Other.toBeMocked()).to.equal("I am the original function");
   });
 });
