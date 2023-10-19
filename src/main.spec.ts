@@ -14,7 +14,7 @@ describe("main", () => {
     const mocked = sandbox.fake.returns("mocked");
 
     // replace.usingAccessor is not available on DT per Sinon 16.1
-    (sandbox.replace as any).usingAccessor(Other.myMock,'toBeMocked',  mocked)
+    (sandbox.replace as any).usingAccessor(Other.mock,'toBeMocked',  mocked)
     const spy = sandbox.spy(console, 'log')
     main();
     expect(mocked.called).to.be.true;
