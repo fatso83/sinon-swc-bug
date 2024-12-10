@@ -3,7 +3,7 @@
     "src/**/*.{spec,test}.ts"
   ],
   "require": [
-    "@swc/register"
+    "@swc-node/register"
   ],
   "recursive": true
 }
