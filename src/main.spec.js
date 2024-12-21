@@ -14,11 +14,9 @@ describe("main module", () => {
     await quibble.esm("./other.js", { toBeMocked: mocked });
     const mainModule = await import("./main.js");
     main = mainModule.main;
-    console.log("ferdig setup");
   });
 
   it("should mock", () => {
-    console.log("test starts");
     main();
     expect(mocked.called).to.be.true;
   });
