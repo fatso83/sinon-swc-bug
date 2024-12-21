@@ -5,9 +5,8 @@
   "spec": [
     "src/**/*.{spec,test}.ts"
   ],
-  "recursive": true,
   "loader": [
-    "@swc-node/register/esm",
-    "quibble"
-  ]
+    "@swc-node/register/esm"
+  ],
+  "recursive": true
 }

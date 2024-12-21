@@ -1,7 +1,7 @@
 import "./init.ts";
 
 import { expect } from "chai";
-import quibble from "quibble";
+import * as td from "testdouble";
 import sinon from "sinon";
 
 const sandbox = sinon.createSandbox();
@@ -11,14 +11,12 @@ describe("main module", () => {
 
   before(async () => {
     mocked = sandbox.fake.returns("mocked");
-    await quibble.esm("./other.js", { toBeMocked: mocked });
+    await td.replaceEsm("./other.ts", { toBeMocked: mocked });
     const mainModule = await import("./main.js");
     main = mainModule.main;
-    console.log("ferdig setup");
   });
 
   it("should mock", () => {
-    console.log("test starts");
     main();
     expect(mocked.called).to.be.true;
   });
